@@ -1,9 +1,9 @@
 {
-  "name": "TaskListAdonis",
+  "name": "TaskList",
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "engines": {
     "node": ">=24.0.0"
   },
@@ -78,7 +78,8 @@
     "luxon": "^3.7.2",
     "reflect-metadata": "^0.2.2",
     "vue": "^3.5.35",
-    "vue-sonner": "^2.0.9"
+    "vue-sonner": "^2.0.9",
+    "ziggy-js": "^2.6.3"
   },
   "hotHook": {
     "boundaries": [

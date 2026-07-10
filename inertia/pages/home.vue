@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { Head, Link } from '@inertiajs/vue3'
+import { Head } from '@inertiajs/vue3'
+import { Link } from '@adonisjs/inertia/vue'
 
 interface Task {
   id: number
@@ -21,6 +22,9 @@ const props = defineProps<{
 
 <template>
   <Head title="Homepage" />
+  <h1>It works — welcome to the power of a full-stack Vue app</h1>
+  <h1>It works — welcome to the power of a full-stack Vue app</h1>
+  <h1>It works — welcome to the power of a full-stack Vue app</h1>
 
   <div>
     <ul>

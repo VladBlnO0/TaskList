@@ -8,7 +8,15 @@ import { BaseModel, column } from '@adonisjs/lucid/orm'
 import { DateTime } from 'luxon'
 
 export class TaskSchema extends BaseModel {
-  static $columns = ['createdAt', 'description', 'id', 'isCompleted', 'longDescription', 'title', 'updatedAt'] as const
+  static $columns = [
+    'createdAt',
+    'description',
+    'id',
+    'isCompleted',
+    'longDescription',
+    'title',
+    'updatedAt',
+  ] as const
   $columns = TaskSchema.$columns
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime | null
