@@ -11,7 +11,6 @@ export default class TasksController {
     return inertia.render('tasks/index', {
       // Pass the serialized array instead of the raw Task[]
       tasks: tasks,
-      title: 'Latest Tasks',
     })
   }
 
@@ -31,7 +30,9 @@ export default class TasksController {
    * Show individual record
    */
   async show({ params }: HttpContext) {
-    return { task: { id: params.id } }
+    const task = await Task.findOrFail(params.id)
+
+    return { task: task.serialize() }
   }
 
   /**
