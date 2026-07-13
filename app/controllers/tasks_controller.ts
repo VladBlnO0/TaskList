@@ -17,28 +17,39 @@ export default class TasksController {
   /**
    * Display form to create a new record
    */
-  async create({ view }: HttpContext) {
-    return view.render('tasks/create')
+  async create({ inertia }: HttpContext) {
+    return inertia.render('tasks/create', {})
   }
 
   /**
    * Handle form submission for the create action
    */
-  async store({ request }: HttpContext) {}
+  async store({ request, response }: HttpContext) {
+    const data = request.only(['title', 'description', 'longDescription'])
+    await Task.create(data)
+
+    return response.redirect().toRoute('tasks.index')
+  }
 
   /**
    * Show individual record
    */
-  async show({ params }: HttpContext) {
+  async show({ inertia, params }: HttpContext) {
     const task = await Task.findOrFail(params.id)
 
-    return { task: task.serialize() }
+    return inertia.render('tasks/show', {
+      task: task.serialize(),
+    })
   }
 
   /**
    * Edit individual record
    */
-  async edit({ params }: HttpContext) {}
+  async edit({ params, response }: HttpContext) {
+    const task = await Task.findOrFail(params.id)
+    task.toggleCompletion()
+    return response.redirect().back()
+  }
 
   /**
    * Handle form submission for the edit action
@@ -48,5 +59,9 @@ export default class TasksController {
   /**
    * Delete record
    */
-  async destroy({ params }: HttpContext) {}
+  async destroy({ params, response }: HttpContext) {
+    const task = await Task.findOrFail(params.id)
+    await task.delete()
+    return response.redirect('/tasks')
+  }
 }

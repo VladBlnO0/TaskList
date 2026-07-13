@@ -2,7 +2,6 @@
 import { Link } from '@adonisjs/inertia/vue'
 import { type Data } from '@generated/data'
 
-// The 'tasks' array from the controller automatically binds here!
 defineProps<{
   tasks: Data.Task[]
 }>()
@@ -22,5 +21,11 @@ defineProps<{
         {{ task.title }}
       </Link>
     </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 0.5rem; padding: 1rem">
+    <Link :href="`/tasks/create`" as="button" style="gap: 0.5rem; padding: 1rem">
+      Create Task
+    </Link>
   </div>
 </template>
