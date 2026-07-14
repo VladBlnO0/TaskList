@@ -1,5 +1,6 @@
 <script setup>
 import { useForm } from '@inertiajs/vue3'
+import { Link } from '@adonisjs/inertia/vue'
 
 const form = useForm({
   title: '',
@@ -13,10 +14,13 @@ const submit = () => {
 </script>
 
 <template>
-  <form @submit.prevent="submit">
+  <form
+    style="display: flex; flex-direction: column; gap: 1rem; padding: 1rem"
+    @submit.prevent="submit"
+  >
     <div>
       <label for="title">Title</label>
-      <input id="title" v-model="form.title" type="text" />
+      <textarea id="title" v-model="form.title" type="text"></textarea>
       <div v-if="form.errors.title">{{ form.errors.title }}</div>
     </div>
 
@@ -34,4 +38,18 @@ const submit = () => {
 
     <button type="submit" :disabled="form.processing">Create</button>
   </form>
+
+  <div
+    style="
+      display: flex;
+      justify-content: center;
+      padding: 1rem;
+      border-top: 1px solid rgba(116, 115, 115, 0.424);
+      background-color: rgba(116, 115, 115, 0.424);
+    "
+  >
+    <Link :href="`/`" class="btn" as="button" style="background-color: unset; border: none">
+      Back
+    </Link>
+  </div>
 </template>

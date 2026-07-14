@@ -29,7 +29,20 @@ watch(
 <template>
   <header>
     <div style="padding: 1rem; display: flex; justify-content: space-between; align-items: center">
-      <h1>Task List</h1>
+      <Link
+        :href="`/`"
+        as="button"
+        style="
+          background-color: unset;
+          border: none;
+          font-weight: 600;
+          font-size: 26px;
+          justify-content: left;
+          display: flex;
+        "
+      >
+        Task List
+      </Link>
     </div>
   </header>
 

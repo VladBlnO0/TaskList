@@ -184,14 +184,35 @@ textarea[data-invalid='true'] + div {
 }
 
 button {
-  background: var(--gray-12);
-  color: #fff;
-  border: none;
-  padding: 10px;
-  font-weight: 500;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  color: #313030;
+  background-color: #f0f0f0;
+  font-weight: 200;
+  font-size: 16px;
+  font-style: normal;
+  cursor: pointer;
 }
 button:hover {
-  background: var(--gray-10);
+  background-color: #e0e0e0;
+  color: #000000;
+}
+.btn {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  color: #313030;
+  background-color: #f0f0f0;
+  border: none;
+  font-weight: normal;
+  font-size: 18px;
+  font-style: normal;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: #e0e0e0;
+  color: #000000;
 }
 
 /* Alerts */
